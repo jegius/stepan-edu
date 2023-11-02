@@ -4,12 +4,13 @@
     --nav-color: rgba(255, 255, 255, 0.91);
     --nav-item-color: #262626;
     --nav-item-color-active: #5AB612;
-    --nav-item-circle-color: #515151;
-    --nav-item-circle-color-active: #4EAF4E;
     --nav-button-bg-color: #f3f3f3;
     --nav-button-icon-color: #FFC32B;
     --logo: url("../image/nav/logo.png");
     --phone: url("../image/nav/phone.svg");
+    --nav-item-circle: url("../image/nav/nav-item-circle.svg");
+    --nav-item-circle-active: url("../image/nav/nav-item-circle-active.svg");
+
 }
 
 body {
@@ -66,23 +67,21 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2.8rem;
+    gap: 1rem;
 }
 
 .nav__item {
+    min-width: 6rem;
+    text-align: center;
     color: var(--nav-item-color);
-    transition: all .3s ease;
+    transition: color .3s ease;
 }
 
 .nav__item::before {
-    position: absolute;
-    content: "";
-    padding: .27rem;
-    margin: .37rem 0 0 -1.1rem;
-    border-radius: 100%;
-    border: var(--nav-item-circle-color) .0625rem solid;
-    transition: all .3s ease;
-
+    position: relative;
+    right: .3rem;
+    content: var(--nav-item-circle);
+    transition: content .3s ease;
 }
 
 .nav__item:hover {
@@ -90,27 +89,22 @@ input {
 }
 
 .nav__item:hover::before {
-    background-color: var(--nav-item-circle-color-active);
-    border-color: var(--nav-item-circle-color-active);
+    content: var(--nav-item-circle-active);
 }
 
 .nav__button {
     min-width: 12rem;
     background-color: var(--nav-button-bg-color);
     border-radius: 2.625rem;
-    padding: 1rem 2.5625rem 1rem .625rem;
-    transition: all .5s ease-in-out;
+    padding: .5rem 2.5625rem 1.9rem .625rem;
 }
 
 .nav__button::before {
     position: absolute;
-    margin-top: -.7rem;
     content: "";
     padding: 1.35rem;
+    background: var(--phone) no-repeat right center;
     background-color: var(--nav-button-icon-color);
-    background-image: var(--phone);
-    background-repeat: no-repeat;
-    background-position: right center;
     border-radius: 1.35rem;
     transition: padding-left 1s ease;
 }
@@ -125,9 +119,9 @@ input {
 
 .nav__button-select {
     position: relative;
+    top: .55rem;
     left: 3.4rem;
-    bottom: .1rem;
-    transition: all 1s ease;
+    transition: left 1s ease;
 }
 
 .text_lato {
